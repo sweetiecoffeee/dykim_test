@@ -11,13 +11,22 @@ adder dut(
 );
 
 initial begin
+    $dumpfile("wave.vcd");
+    $dumpvars(0, tb);
+end
+
+initial begin     
     a = 10;
     b = 20;
 
     #1;
 
     $display("y = %0d", y);
+	
+    a = 20;
+    #1;
 
+    $display("y = %0d", y);
     $finish;
 end
 
